@@ -142,6 +142,7 @@ class MotionPlanning(Drone):
         grid, north_offset, east_offset = create_grid(data, TARGET_ALTITUDE, SAFETY_DISTANCE)
         print("North offset = {0}, east offset = {1}".format(north_offset, east_offset))
         # Define starting point on the grid (this is just grid center)
+        
         grid_start = (-north_offset, -east_offset)
         # TODO: convert start position to current position rather than map center
         grid_start = (local_position[0], local_position[1])
@@ -149,6 +150,7 @@ class MotionPlanning(Drone):
         grid_goal = (-north_offset + 10, -east_offset + 10)
         # TODO: adapt to set goal as latitude / longitude position and convert
         grid_goal = (local_position[0] + 10, local_position[0] + 10)
+        
         # Run A* to find a path from start to goal
         # TODO: add diagonal motions with a cost of sqrt(2) to your A* implementation
         # or move to a different search space such as a graph (not done here)
